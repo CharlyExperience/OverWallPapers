@@ -1,0 +1,64 @@
+﻿<Window x:Class="testWallNetCore.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:testWallNetCore"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="712" Width="1390">
+    
+    <Grid >
+        <Grid Background="#e0e0e0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Contenido-->
+            <Grid  Grid.Column="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="ContenedorComponentes" Grid.Row="1" Grid.Column="1">
+                    
+                </Grid>
+            </Grid>
+
+
+        </Grid>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <!--Menu-->
+            <Grid  Grid.Column="0" Background="#FFFFFF">
+                <StackPanel Orientation="Vertical" Margin="10" MouseUp="StackPanel_MouseUp"   >
+
+                    <TextBlock Style="{StaticResource Titulo}">Over wallPapers</TextBlock>
+                    <Separator />
+                    <TextBlock Style="{StaticResource SubTitulo}" Margin="5" MouseUp="TextBlock_MouseUp">Sets</TextBlock>
+                    <TextBlock x:Name="Pruebas"  Style="{StaticResource SubTitulo}" Margin="5" MouseUp="Pruebas_MouseUp">Prueba</TextBlock>
+
+
+                </StackPanel>
+            </Grid>
+            
+
+        </Grid>
+
+        
+
+    </Grid>
+</Window>

@@ -1,0 +1,79 @@
+﻿<UserControl
+    x:Class="OverWallPapers.Componentes.FormularioWalPaperSet"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OverWallPapers.Componentes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Border Style="{StaticResource Targeta}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <!--Formulario para los datos-->
+            <TextBlock x:Name="Titulo" Grid.Column="1" Grid.Row="0" Text="Nuevo Set!" Style="{StaticResource Titulo}"/>
+
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Margin="0,0,0,0" Grid.Column="0" Orientation="Vertical">
+                    <TextBlock Text="Nombre del Set" Style="{StaticResource SubTitulo}" Margin="0,10,0,10"/>
+                    <TextBox x:Name="Nombre" Style="{StaticResource Input}"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="20,0,20,0" Grid.Column="1" Orientation="Vertical">
+                    <TextBlock Text="Posicion del fondo de pantalla" Style="{StaticResource SubTitulo}" Margin="0,10,0,10"/>
+                    <!--<TimePicker x:Name="HoraDeAplicacion"></TimePicker>-->
+
+                    <ComboBox Name="Posicion" Style="{StaticResource Combo}" SelectionChanged="Posicion_SelectionChanged"> 
+                        <ComboBoxItem Content="Centro"/>
+                        <ComboBoxItem Content="Icono"/>
+                        <ComboBoxItem Content="Expandir"/>
+                        <ComboBoxItem Content="Ajustar"/>
+                        <ComboBoxItem Content="Rellenar"/>
+                        <ComboBoxItem Content="Distribuir"/>
+                    </ComboBox>
+                    
+                </StackPanel>
+            </Grid>
+            <Border Grid.Column="1" Grid.Row="2" BorderBrush="Gray" BorderThickness="0,0,0,2" Margin="0,10,0,10">
+
+            </Border>
+
+
+            <!--Control de imagenes y pantallas-->
+
+            <Grid x:Name="ContenedorMonitores" Grid.Column="1" Grid.Row="3" Background="AliceBlue" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+            </Grid>
+
+            <StackPanel Grid.Column="1" Margin="10" Grid.Row="4" Orientation="Horizontal">
+                <Button x:Name="BtnGuardar" Grid.Column="1" Margin="10" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="guardar" Click="BtnGuardar_Click"></Button>
+                <Button x:Name="BtnAplicar" Grid.Column="1" Margin="10" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="Aplicar" Click="BtnAplicar_Click"></Button>
+            </StackPanel>
+            
+        </Grid>
+    </Border>
+    
+</UserControl>

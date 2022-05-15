@@ -1,0 +1,74 @@
+﻿<UserControl
+    x:Class="OverWallPapers.Componentes.ListaDeSets"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OverWallPapers.Componentes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <Border Style="{StaticResource Targeta}" Grid.Column="0" Grid.Row="0">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+
+                <StackPanel  Orientation="Vertical" Grid.Row="0" Grid.Column="1">
+                    <TextBlock Style="{StaticResource Titulo}" >Walls Papers</TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <!--Titulo-->
+       
+
+        <ScrollViewer Grid.Row="1"  Grid.Column="0">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--Contenido de los registros-->
+                <StackPanel x:Name="ContenedorSets" Grid.Row="0" Grid.Column="0" Orientation="Vertical" >
+
+
+                </StackPanel>
+
+                <!--Botonera para agregar y editar-->
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical">
+                    <Button x:Name="BtnAgregar" HorizontalAlignment="Right" Margin="0,10,0,0" Click="BtnAgregar_Click">Agregar Nuevo</Button>
+                </StackPanel>
+
+            </Grid>
+
+
+        </ScrollViewer>
+
+    </Grid>
+
+</UserControl>
