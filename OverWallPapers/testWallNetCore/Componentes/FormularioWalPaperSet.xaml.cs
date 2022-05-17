@@ -218,7 +218,8 @@ namespace OverWallPapers.Componentes
 
         private void Posicion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch (Posicion.Text)
+            var seleccionNueva = (System.Windows.Controls.ComboBoxItem)e.AddedItems[0];
+            switch (seleccionNueva.Content)
             {
                 case "Rellenar":
                     {
