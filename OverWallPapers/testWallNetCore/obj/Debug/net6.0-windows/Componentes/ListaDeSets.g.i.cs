@@ -68,7 +68,7 @@ namespace OverWallPapers.Componentes {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/testWallNetCore;component/componentes/listadesets.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/testWallNetCore;V1.0.0.0;component/componentes/listadesets.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Componentes\ListaDeSets.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tXuVTy3av+P8RK1/77hMPQGLDWe6mRI2Z1Q/X3Fn0A89ScHx3gwmj6RhwoH1nftfkv/BeXFDUBTmq1NSL7WrRw==",
+  "dgSpecHash": "VSv2CHxBMolWxmL/1SR+4NMzE4/1U+g3Ux03+1N2QkwAaJhkwJMbjsLh/OjJc2ElDSsRKRV8TJI0elL3smgVtg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Charly\\source\\repos\\testWallNetCore\\testWallNetCore\\testWallNetCore.csproj",
+  "projectFilePath": "C:\\Users\\Charly\\Documents\\Proyectos\\OverWallPapers\\OverWallPapers\\testWallNetCore\\testWallNetCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Charly\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],

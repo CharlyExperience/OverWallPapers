@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Charly\source\repos\testWallNetCore\testWallNetCore\obj\Debug\net6.0-windows\
+C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCore\obj\Debug\net6.0-windows\
 testWallNetCore
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\Charly\source\repos\testWallNetCore\testWallNetCore\App.xaml
+C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCore\App.xaml
 7123031517
 
-15-450904721
+16425385168
 195-625244481
 Componentes\AdministradorWallPaper.xaml;Componentes\EditorMonitor.xaml;Componentes\ElementoWallPaper.xaml;Componentes\FormularioWalPaperSet.xaml;Componentes\ListaDeSets.xaml;MainWindow.xaml;Recursos\Estilos.xaml;
 
-True
+False
 
