@@ -50,6 +50,7 @@
                     <Separator />
                     <TextBlock Style="{StaticResource SubTitulo}" Margin="5" MouseUp="TextBlock_MouseUp">Sets</TextBlock>
                     <TextBlock x:Name="Pruebas"  Style="{StaticResource SubTitulo}" Margin="5" MouseUp="Pruebas_MouseUp">Prueba</TextBlock>
+                    <TextBlock x:Name="Pruebasr"  Style="{StaticResource SubTitulo}" Margin="5" MouseUp="Comportamiento_MouseUp">Comportamientos</TextBlock>
 
 
                 </StackPanel>

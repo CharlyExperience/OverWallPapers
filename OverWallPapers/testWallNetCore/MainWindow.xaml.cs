@@ -1,4 +1,5 @@
-﻿using OverWallPapers.Componentes;
+﻿using Newtonsoft.Json;
+using OverWallPapers.Componentes;
 using OverWallPapers.Modelos;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using testWallNetCore.Datos;
+using testWallNetCore.Datos.Interfaces;
 using testWallNetCore.Modelos;
 
 namespace testWallNetCore
@@ -25,6 +27,8 @@ namespace testWallNetCore
     /// </summary>
     public partial class MainWindow : Window
     {
+        //injeccion de dependencias
+        public IAgenteDatos Agente;
         public MainWindow()
         {
             InitializeComponent();
@@ -40,6 +44,9 @@ namespace testWallNetCore
 
             //MessageBox.Show(x);
 
+            //inicializar el agente de base de datos
+            Agente = new DatosApiSqlite(@"C:\Users\Charly\Desktop\FondosPantalla.db");
+
         }
 
         private void StackPanel_MouseUp(object sender, MouseButtonEventArgs e)
@@ -50,7 +57,7 @@ namespace testWallNetCore
 
         private void TextBlock_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            AdministradorWallPaper administrador = new AdministradorWallPaper();
+            AdministradorWallPaper administrador = new AdministradorWallPaper(Agente);
             ContenedorComponentes.Children.Clear();
             ContenedorComponentes.Children.Add(administrador);
         }
@@ -58,23 +65,22 @@ namespace testWallNetCore
         {
             //ese metodo esta orientado a realizar pruebas
 
-            
-            
-            //cambiar el fondo del monitor del final
-            //recuperar los sets 
-            List<WallPaperSet> sets= new List<WallPaperSet>();
+            //Pruebas respecto a sqlite
 
-            sets = DatosApi.RecuperarSets();
+            DesktopWallpaperPosition x = (DesktopWallpaperPosition)2;
 
-            // obtener la configuracion adecuada de los monitores
-                //obtener la lista de monitores 
-            List<string> monitores = WallPaperApi.ListaDeMonitoresActuales();
-            //obtener la configuracion correspondiente
-            //monitores = DatosApi.ObtenerConfiguracionMonitores(monitores);
-            // mandar a colocar el primer set
+            WallPaperSet set = new WallPaperSet();
+            set.Posicion = x;
 
+        }
 
-            WallPaperApi.AplicarSet(sets[0],monitores);
+        private void Comportamiento_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            //ese metodo esta orientado a iniciar el componente de creacion de comportamientos
+
+            AdministradorWallPaper administrador = new AdministradorWallPaper(Agente);
+            ContenedorComponentes.Children.Clear();
+            ContenedorComponentes.Children.Add(administrador);
 
         }
 

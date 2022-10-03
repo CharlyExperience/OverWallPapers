@@ -9,6 +9,10 @@ using System.Windows.Controls;
 using System.Windows;
 using Newtonsoft.Json;
 using testWallNetCore.Modelos;
+using System.Threading;
+using System.Threading.Tasks;
+using testWallNetCore.Datos;
+using testWallNetCore.Datos.Interfaces;
 
 // La plantilla de elemento Control de usuario está documentada en https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -17,9 +21,8 @@ namespace OverWallPapers.Componentes
     public sealed partial class FormularioWalPaperSet : UserControl
     {
 
-        public delegate void OperacionCompleta(WallPaperSet set);
-        public OperacionCompleta GuardarSet;
-
+        public delegate void OperacionCompleta();
+        public OperacionCompleta OperacionCompletaEvent;
 
         public WallPaperSet Set;
 
@@ -27,18 +30,39 @@ namespace OverWallPapers.Componentes
 
         private bool Nuevo;
 
+        //injeccion de dependencias
+        IAgenteDatos Agente;
+
         public FormularioWalPaperSet()
         {
             this.InitializeComponent();
+
+            GrdCarga.Visibility=Visibility.Collapsed;
+        }
+        
+        public FormularioWalPaperSet(IAgenteDatos agente)
+        {
+            this.InitializeComponent();
+
+            //datos
+            Agente = agente;
+
+            GrdCarga.Visibility=Visibility.Collapsed;
         }
 
         public void NuevoSet()
         {
             Set = new WallPaperSet();
             Set.Posicion = DesktopWallpaperPosition.Fill;
-            Nuevo= true;
+            Set.Id = null;
+            Set.Nombre = null;
+
+            Nuevo = true;
 
             Posicion.SelectedIndex = 4;
+
+            //configurar el contexto para el bindeo
+            GrdForm.DataContext=Set;
 
             //obtener la cantidad de monitores conectados a la pc 
             IDesktopWallpaper Wallpaper;
@@ -70,7 +94,11 @@ namespace OverWallPapers.Componentes
 
             //configurar como edicion
             Nuevo = false;
+
+            //configurar el contexto para el bindeo
+            GrdForm.DataContext = Set;
         }
+
         public void GenerarMonitores()
         {
             Monitores = new List<EditorMonitor>();
@@ -108,19 +136,40 @@ namespace OverWallPapers.Componentes
             
 
         }
-        private void BtnGuardar_Click(object sender, RoutedEventArgs e)
+
+        private async void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
+            //poner la ventana de cargando
+            GrdCarga.Visibility = Visibility.Visible;
+
+            //guardar
+            
+            await GuardarAsync();
+
+            //poner la ventana de cargando
+            GrdCarga.Visibility = Visibility.Collapsed;
+            return;
+        }
+
+        public async Task<bool> GuardarAsync()
+        {
+
+            //esperar 10 segundos
+
+            //await Task.Delay(5000);
+            //guardar con el metodo original
+
             //validar que los campos no esten vacios
             Nombre.Text = Nombre.Text.Trim();
             if (Nombre.Text == null || Nombre.Text.Length == 0)
             {
                 MessageBox.Show("El Nombre del set no ha sido indicado");
-                return;
+                return false;
             }
 
             //asignar los valores del formulario al modelo del set 
-            Set.Nombre=Nombre.Text;
-           
+            Set.Nombre = Nombre.Text;
+
 
             switch (Posicion.Text)
             {
@@ -158,56 +207,73 @@ namespace OverWallPapers.Componentes
 
             //reconstruir los monitores del modelo
             Set.Monitores.Clear();
-            foreach(EditorMonitor mon in Monitores)
+            foreach (EditorMonitor mon in Monitores)
             {
                 Set.Monitores.Add(mon.Monitor);
             }
 
+            #region Guardado Sqlite
 
-            //guardar el set en la ista de sets existentes
-                //recuperar la lista de sets
-            string json = File.ReadAllText(@"C:\Users\Charly\Desktop\Sets.json");
-            List<WallPaperSet> Sets = JsonConvert.DeserializeObject <List<WallPaperSet>>(json);
+            long? id = Agente.GuardarSet(Set);
 
-            //si se trata de un nuevo registo
-            string msg;
-            if(Nuevo)
-            {
-                //verificar que no exista un set con el mismo nombre
-                if (Sets.Where(x => x.Nombre == Nombre.Text).Count() > 0)
-                {
-                    MessageBox.Show("Ya existe un Set con ese Nombre");
-                   
-                    return;
-                }
-                msg = "Nuevo set creado!";
-                //guardar incluir el set a la lista y escribir el json
-                Sets.Add(Set);
-            }
-            else
-            {
-                //modificar el set corresponda al nombre con el nuevo a guardar
-                for(int i= 0; i < Sets.Count; i++)
-                {
-                    if(Sets[i].Nombre==Set.Nombre)
-                    {
-                        Sets[i] = Set;
-                        
-                    }
-                }
-                msg = "Edicion Exitosa";
-            }
-                
-            
-               
-            json = JsonConvert.SerializeObject(Sets);
 
-            //escribir el json
-            File.WriteAllText(@"C:\Users\Charly\Desktop\Sets.json", json);
+            #endregion
 
-            MessageBox.Show(msg);
+            #region guardado en el json
+            ////guardar el set en la ista de sets existentes
+            ////recuperar la lista de sets
+            //string json = File.ReadAllText(@"C:\Users\Charly\Desktop\Sets.json");
+            //List<WallPaperSet> Sets = JsonConvert.DeserializeObject<List<WallPaperSet>>(json);
 
-            Titulo.Text = "Editar Set";
+            ////si se trata de un nuevo registo
+            //string msg;
+            //if (Nuevo)
+            //{
+            //    //verificar que no exista un set con el mismo nombre
+            //    if (Sets.Where(x => x.Nombre == Nombre.Text).Count() > 0)
+            //    {
+            //        MessageBox.Show("Ya existe un Set con ese Nombre");
+
+            //        return false;
+            //    }
+            //    msg = "Nuevo set creado!";
+            //    //guardar incluir el set a la lista y escribir el json
+            //    Sets.Add(Set);
+            //}
+            //else
+            //{
+            //    //modificar el set corresponda al nombre con el nuevo a guardar
+            //    for (int i = 0; i < Sets.Count; i++)
+            //    {
+            //        if (Sets[i].Nombre == Set.Nombre)
+            //        {
+            //            Sets[i] = Set;
+
+            //        }
+            //    }
+            //    msg = "Edicion Exitosa";
+            //}
+
+
+
+            //json = JsonConvert.SerializeObject(Sets);
+
+            ////escribir el json
+            //File.WriteAllText(@"C:\Users\Charly\Desktop\Sets.json", json);
+
+            //MessageBox.Show(msg);
+
+            #endregion
+
+            //asiganr al set el id insertado
+            Set.Id = id;
+
+            Titulo.Text = "Editar Set #"+Set.Id.ToString();
+
+
+
+            return true;
+
         }
 
         private void BtnAplicar_Click(object sender, RoutedEventArgs e)
@@ -252,6 +318,11 @@ namespace OverWallPapers.Componentes
                         break;
                     }
             }
+        }
+
+        private void BtnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            OperacionCompletaEvent();
         }
     }
 }

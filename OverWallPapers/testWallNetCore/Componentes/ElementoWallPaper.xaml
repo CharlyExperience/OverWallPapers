@@ -28,12 +28,12 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-
+            <TextBlock x:Name="TxtId" Grid.Column="2" Style="{StaticResource Texto}"></TextBlock>
             <TextBlock x:Name="TxtNombre" Grid.Column="0" Style="{StaticResource Texto}"></TextBlock>
             <TextBlock x:Name="TxtHoraAplicacion" Grid.Column="1" Style="{StaticResource Texto}"> aqui va la hora de aplicacion</TextBlock>
-            <TextBlock Grid.Column="2" Style="{StaticResource Texto}"> aqui si todavia no se</TextBlock>
 
             <!--<Grid.ContextMenu>
                 <ContextMenu>

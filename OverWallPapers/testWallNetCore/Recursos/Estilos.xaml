@@ -10,25 +10,35 @@
     </Style>
     
     -->
-    <!--Texto-->
+    
+    <!--Colores-->
+    <!--<Color x:Key=""></Color>-->
+
+
+
+    <SolidColorBrush x:Key="Primario" Color="#08cfaa" />
+    <SolidColorBrush x:Key="Secundario" Color="#4429f2" />
+    <SolidColorBrush x:Key="Gris" Color="#525252" />
+    <SolidColorBrush x:Key="GrisClaro" Color="#808080" />
+    <!--Texto-->    
 
     <Style TargetType="TextBlock" x:Key="Titulo">
         <Setter Property="FontSize" Value="30"></Setter>
-        <Setter Property="Foreground" Value="Orange"></Setter>
+        <Setter Property="Foreground" Value="{StaticResource Primario}"></Setter>
         <Setter Property="Margin" Value="10"></Setter>
         <Setter Property="FontWeight" Value="Bold"/>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="SubTitulo">
         <Setter Property="FontSize" Value="20"></Setter>
-        <Setter Property="Foreground" Value="Gray"></Setter>
+        <Setter Property="Foreground" Value="{StaticResource Primario}"></Setter>
         <Setter Property="Margin" Value="10"></Setter>
         <Setter Property="FontWeight" Value="SemiBold"/>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="Texto">
         <Setter Property="FontSize" Value="15"></Setter>
-        <Setter Property="Foreground" Value="Gray"></Setter>
+        <Setter Property="Foreground" Value="{StaticResource Gris}"></Setter>
         <Setter Property="Margin" Value="10"></Setter>
     </Style>
 
@@ -44,31 +54,39 @@
 
     <!--Inputs-->
     <Style TargetType="TextBox" x:Key="Input">
-        <Setter Property="BorderBrush" Value="Gray"/>
+        <Setter Property="BorderBrush" Value="{StaticResource GrisClaro}"/>
         <Setter Property="BorderThickness" Value="0,0,0,1"/>
         <Setter Property="Background" Value="White"></Setter>
         <Setter Property="Padding" Value="0,0,0,5"></Setter>
         <Setter Property="FontSize" Value="20"/>
-        <Setter Property="Foreground" Value="Gray"/>
+        <Setter Property="Foreground" Value="{StaticResource GrisClaro}"/>
     </Style>
 
     <Style TargetType="Button" x:Key="BotonPrincipal">
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Background" Value="Orange"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="{StaticResource Primario}"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="FontSize" Value="25"/>
-        <!--<Setter Property="CornerRadius" Value="10"/>-->
+        <Setter Property="Padding" Value="10,5,10,5" />
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="BorderThickness" Value="0"/>
+            </Style>
+        </Style.Resources>
     </Style>
 
     <Style TargetType="ComboBox" x:Key="Combo">
-        <Setter Property="BorderBrush" Value="Gray"/>
-        <Setter Property="BorderThickness" Value="0,0,0,0"/>
+        <Setter Property="BorderBrush" Value="{StaticResource GrisClaro}"/>
+        <Setter Property="BorderThickness" Value="0,0,0,1"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="Padding" Value="10,0,0,5"/>
         <Setter Property="FontSize" Value="20"/>
-        <Setter Property="Foreground" Value="Gray"/>
+        <Setter Property="Foreground" Value="{StaticResource GrisClaro}"/>
+        
     </Style>
+    
     
     
     <!--Colores custom-->
