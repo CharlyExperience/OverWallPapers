@@ -92,7 +92,7 @@ namespace OverWallPapers.Componentes {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/testWallNetCore;V1.0.0.0;component/componentes/elementowallpaper.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/testWallNetCore;component/componentes/elementowallpaper.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Componentes\ElementoWallPaper.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
