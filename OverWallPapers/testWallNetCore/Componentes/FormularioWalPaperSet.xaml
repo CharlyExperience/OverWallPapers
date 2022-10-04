@@ -70,10 +70,10 @@
 
             </Grid>
 
-            <StackPanel Grid.Column="1" Margin="10" Grid.Row="4" Orientation="Horizontal">
-                <Button x:Name="BtnGuardar" Grid.Column="1" Margin="10" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="Guardar" Click="BtnGuardar_Click"></Button>
-                <Button x:Name="BtnAplicar" Grid.Column="1" Margin="10" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="Aplicar" Click="BtnAplicar_Click"></Button>
-                <Button x:Name="BtnVolver" Grid.Column="1" Margin="10" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="Volver" Click="BtnVolver_Click"></Button>
+            <StackPanel Grid.Column="1" Margin="0,0,0,0" Grid.Row="4" Orientation="Horizontal" >
+                <Button x:Name="BtnGuardar" Grid.Column="1" Margin="0,0,10,0" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="Guardar" Click="BtnGuardar_Click"></Button>
+                <Button x:Name="BtnAplicar" Grid.Column="1" Margin="0,0,10,0" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="Aplicar" Click="BtnAplicar_Click"></Button>
+                <Button x:Name="BtnVolver" Grid.Column="1"  Margin="0,0,10,0" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="Volver" Click="BtnVolver_Click"></Button>
             </StackPanel>
 
 

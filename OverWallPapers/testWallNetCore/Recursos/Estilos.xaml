@@ -25,7 +25,7 @@
     <Style TargetType="TextBlock" x:Key="Titulo">
         <Setter Property="FontSize" Value="30"></Setter>
         <Setter Property="Foreground" Value="{StaticResource Primario}"></Setter>
-        <Setter Property="Margin" Value="10"></Setter>
+        <Setter Property="Margin" Value="0"></Setter>
         <Setter Property="FontWeight" Value="Bold"/>
     </Style>
 
@@ -87,7 +87,11 @@
         
     </Style>
     
-    
+    <!--Iconos e Imagenes-->
+    <Style TargetType="Image" x:Key="Icono">
+        <Setter Property="Height" Value="30"/>
+       
+    </Style>
     
     <!--Colores custom-->
     <SolidColorBrush x:Key="FondoGrisClaro" Color="#e3e1e1"/>
