@@ -8,13 +8,36 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Recursos\Iconos\Calendario.png" />
+    <None Remove="Recursos\Iconos\Experimental.png" />
+    <None Remove="Recursos\Iconos\Imagen.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Recursos\Iconos\Calendario.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Recursos\Iconos\Experimental.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Recursos\Iconos\Imagen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.116" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="ConfiguracionMonitores.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Modelos\Comportamientos\" />
   </ItemGroup>
 
 </Project>

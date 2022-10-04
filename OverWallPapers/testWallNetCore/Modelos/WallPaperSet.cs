@@ -11,6 +11,7 @@ namespace OverWallPapers.Modelos
     /// </summary>
     public class WallPaperSet
     {
+        public Int64? Id;
         public string Nombre { get; set; }
         public List<WallPaper> Monitores { set; get; }
 
@@ -18,6 +19,7 @@ namespace OverWallPapers.Modelos
 
         public WallPaperSet()
         {
+            Id = 0;
             Nombre = null;
             Monitores = new List<WallPaper>();
         }

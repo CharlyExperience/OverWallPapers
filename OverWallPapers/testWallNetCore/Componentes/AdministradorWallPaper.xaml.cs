@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using testWallNetCore.Datos;
+using testWallNetCore.Datos.Interfaces;
 using testWallNetCore.Modelos;
 
 
@@ -28,24 +30,29 @@ namespace OverWallPapers.Componentes
 
         FormularioWalPaperSet CompFormularioSets;
 
-        
-        public AdministradorWallPaper()
+        //injeccion de dependencias
+        IAgenteDatos Agente;
+
+        public AdministradorWallPaper(IAgenteDatos agente)
         {
             this.InitializeComponent();
-            
+
+            //datos
+            Agente = agente;
+
             // las fases son 0 registros, 1 formulario,
             Fase = 0;
 
             //inicializar los componentes
-            CompListaSets = new ListaDeSets();
+            CompListaSets = new ListaDeSets(Agente);
 
-            CompFormularioSets = new FormularioWalPaperSet();
+            CompFormularioSets = new FormularioWalPaperSet(Agente);
 
 
             //suscribirse a los eventos de los componentes
             CompListaSets.NuevoRegistroEvent += NuevoRegiostroListener;
 
-            CompFormularioSets.GuardarSet += GuardarSetListener;
+            CompFormularioSets.OperacionCompletaEvent += GuardarSetListener;
 
             //agregarlos a la interfaz
             Contenedor.Children.Add(CompListaSets);
@@ -54,22 +61,31 @@ namespace OverWallPapers.Componentes
             //leer los sets disponibles
             Sets = new List<WallPaperSet>();
 
-            //leer el archivo de config
-            string json = File.ReadAllText(@"C:\Users\Charly\Desktop\Sets.json");
+            ////leer el archivo de config
+            //string json = File.ReadAllText(@"C:\Users\Charly\Desktop\Sets.json");
 
-            //using (StreamReader r = new StreamReader(@"C:\Users\Charly\Desktop\Sets.json"))
-            //{
-            //    string json = r.ReadToEnd();
-            //    Sets = JsonConvert.DeserializeObject<List<WallPaperSet>>(json);
-            //}
+            ////using (StreamReader r = new StreamReader(@"C:\Users\Charly\Desktop\Sets.json"))
+            ////{
+            ////    string json = r.ReadToEnd();
+            ////    Sets = JsonConvert.DeserializeObject<List<WallPaperSet>>(json);
+            ////}
 
-            Sets = JsonConvert.DeserializeObject<List<WallPaperSet>>(json);
+            //Sets = JsonConvert.DeserializeObject<List<WallPaperSet>>(json);
+
+            //cargar los sets
+
+            Sets=Agente.ConsultarSets();
+
+            Sets = Sets == null ? new List<WallPaperSet>() : Sets;
 
             //enviar a construir la lista de sets
+
+
             CompListaSets.CargarSets(Sets);
 
             CompListaSets.EdicionEvent += EscuchadorEdicion;
             CompListaSets.AplicarEvent += EscuchadorAplicar;
+            CompListaSets.EliminarEvent += EscuchadorEliminacion;
             //navegar fase 0
             NavegarEntreFase(0);
         }
@@ -109,10 +125,14 @@ namespace OverWallPapers.Componentes
             NavegarEntreFase(1);
         }
 
-        private void EscuchadorEdicion(string nombre)
+        private void EscuchadorEdicion(Int64 Id)
         {
             //buscar el set correspondiente a ese nombre
-            WallPaperSet Set = Sets.Where(x => x.Nombre == nombre).FirstOrDefault();
+            //viejo
+            //WallPaperSet Set = Sets.Where(x => x.Nombre == nombre).FirstOrDefault();
+
+            //sqlite
+            WallPaperSet Set=Agente.ConsultarSet(Id);
 
             if(Set != null)
             {
@@ -121,10 +141,10 @@ namespace OverWallPapers.Componentes
             }
         }
 
-        private void EscuchadorAplicar(string nombre)
+        private void EscuchadorAplicar(long id)
         {
             //buscar el set correspondiente a ese nombre
-            WallPaperSet Set = Sets.Where(x => x.Nombre == nombre).FirstOrDefault();
+            WallPaperSet Set = Sets.Where(x => x.Id == id).FirstOrDefault();
 
             if (Set != null)
             {
@@ -137,9 +157,28 @@ namespace OverWallPapers.Componentes
                 MessageBox.Show("El set no fue encntrado");
             }
         }
-        public void GuardarSetListener(WallPaperSet set)
+
+        private void EscuchadorEliminacion(long id)
+        {
+            //hacer uso del agente para remover el registro de la base de datos
+
+            try
+            {
+                if(Agente.EliminarSet(id))
+                {
+                    CompListaSets.CargarSets(Agente.ConsultarSets());
+                }
+            }
+            catch(Exception e)
+            {
+
+            }
+            
+        }
+        public void GuardarSetListener()
         {
             NavegarEntreFase(0);
+            CompListaSets.CargarSets(Agente.ConsultarSets());
         }
 
 

@@ -24,10 +24,12 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
+           
+            
             <!--Formulario para los datos-->
             <TextBlock x:Name="Titulo" Grid.Column="1" Grid.Row="0" Text="Nuevo Set!" Style="{StaticResource Titulo}"/>
 
-            <Grid Grid.Column="1" Grid.Row="1">
+            <Grid x:Name="GrdForm" Grid.Column="1" Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -35,7 +37,7 @@
 
                 <StackPanel Margin="0,0,0,0" Grid.Column="0" Orientation="Vertical">
                     <TextBlock Text="Nombre del Set" Style="{StaticResource SubTitulo}" Margin="0,10,0,10"/>
-                    <TextBox x:Name="Nombre" Style="{StaticResource Input}"></TextBox>
+                    <TextBox x:Name="Nombre" Style="{StaticResource Input}" Text="{Binding Nombre, Mode=TwoWay}"></TextBox>
                 </StackPanel>
                 <StackPanel Margin="20,0,20,0" Grid.Column="1" Orientation="Vertical">
                     <TextBlock Text="Posicion del fondo de pantalla" Style="{StaticResource SubTitulo}" Margin="0,10,0,10"/>
@@ -68,11 +70,16 @@
 
             </Grid>
 
-            <StackPanel Grid.Column="1" Margin="10" Grid.Row="4" Orientation="Horizontal">
-                <Button x:Name="BtnGuardar" Grid.Column="1" Margin="10" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="guardar" Click="BtnGuardar_Click"></Button>
-                <Button x:Name="BtnAplicar" Grid.Column="1" Margin="10" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="Aplicar" Click="BtnAplicar_Click"></Button>
+            <StackPanel Grid.Column="1" Margin="0,0,0,0" Grid.Row="4" Orientation="Horizontal" >
+                <Button x:Name="BtnGuardar" Grid.Column="1" Margin="0,0,10,0" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="Guardar" Click="BtnGuardar_Click"></Button>
+                <Button x:Name="BtnAplicar" Grid.Column="1" Margin="0,0,10,0" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="Aplicar" Click="BtnAplicar_Click"></Button>
+                <Button x:Name="BtnVolver" Grid.Column="1"  Margin="0,0,10,0" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="Volver" Click="BtnVolver_Click"></Button>
             </StackPanel>
-            
+
+
+            <Grid x:Name="GrdCarga" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="5" Background="#88000000">
+                <TextBlock  Style="{StaticResource Titulo}" >Cargando</TextBlock>
+            </Grid>
         </Grid>
     </Border>
     

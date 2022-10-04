@@ -48,8 +48,20 @@
 
                     <TextBlock Style="{StaticResource Titulo}">Over wallPapers</TextBlock>
                     <Separator />
-                    <TextBlock Style="{StaticResource SubTitulo}" Margin="5" MouseUp="TextBlock_MouseUp">Sets</TextBlock>
-                    <TextBlock x:Name="Pruebas"  Style="{StaticResource SubTitulo}" Margin="5" MouseUp="Pruebas_MouseUp">Prueba</TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Recursos/Iconos/Imagen.png" Style="{StaticResource Icono}" ></Image>
+                        <TextBlock Style="{StaticResource SubTitulo}" Margin="5" MouseUp="TextBlock_MouseUp">Sets</TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Recursos/Iconos/Experimental.png" Style="{StaticResource Icono}" Height="30" ></Image>
+                        <TextBlock x:Name="Pruebas"  Style="{StaticResource SubTitulo}" Margin="5" MouseUp="Pruebas_MouseUp">Prueba</TextBlock>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Recursos/Iconos/Calendario.png" Style="{StaticResource Icono}" Height="30" ></Image>
+                        <TextBlock x:Name="Pruebasr"  Style="{StaticResource SubTitulo}" Margin="5" MouseUp="Comportamiento_MouseUp">Comportamientos</TextBlock>
+
+                    </StackPanel>
 
 
                 </StackPanel>
