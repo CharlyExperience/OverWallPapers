@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using testWallNetCore.Componentes.Comportamientos;
 using testWallNetCore.Datos;
 using testWallNetCore.Datos.Interfaces;
 using testWallNetCore.Modelos;
@@ -25,6 +26,9 @@ namespace testWallNetCore
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
+    
     public partial class MainWindow : Window
     {
         //injeccion de dependencias
@@ -47,6 +51,10 @@ namespace testWallNetCore
             //inicializar el agente de base de datos
             Agente = new DatosApiSqlite(@"C:\Users\Charly\Desktop\FondosPantalla.db");
 
+
+            //escuchar el evento del menu
+            Menu.EventoMenu += EscuchadorMenu;
+
         }
 
         private void StackPanel_MouseUp(object sender, MouseButtonEventArgs e)
@@ -55,13 +63,35 @@ namespace testWallNetCore
            
         }
 
-        private void TextBlock_MouseUp(object sender, MouseButtonEventArgs e)
+        public void EscuchadorMenu(string opc)
+        {
+            switch(opc)
+            {
+                case "sets":
+                    {
+                        Sets();
+                        break;
+                    }
+                case "prueba":
+                    {
+                        Pruebas();
+                        break;
+                    }
+                case "comportamientos":
+                    {
+                        Comportamiento();
+                        break;
+                    }
+            }
+        }
+
+        private void Sets()
         {
             AdministradorWallPaper administrador = new AdministradorWallPaper(Agente);
             ContenedorComponentes.Children.Clear();
             ContenedorComponentes.Children.Add(administrador);
         }
-        private void Pruebas_MouseUp(object sender, MouseButtonEventArgs e)
+        private void Pruebas()
         {
             //ese metodo esta orientado a realizar pruebas
 
@@ -74,11 +104,11 @@ namespace testWallNetCore
 
         }
 
-        private void Comportamiento_MouseUp(object sender, MouseButtonEventArgs e)
+        private void Comportamiento()
         {
             //ese metodo esta orientado a iniciar el componente de creacion de comportamientos
 
-            AdministradorWallPaper administrador = new AdministradorWallPaper(Agente);
+            AdministradorComportamientos administrador = new AdministradorComportamientos(Agente);
             ContenedorComponentes.Children.Clear();
             ContenedorComponentes.Children.Add(administrador);
 

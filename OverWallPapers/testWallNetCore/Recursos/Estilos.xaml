@@ -67,7 +67,7 @@
         <Setter Property="Background" Value="{StaticResource Primario}"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
-        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="Padding" Value="10,5,10,5" />
         <Style.Resources>
             <Style TargetType="Border">

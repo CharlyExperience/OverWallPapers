@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCore\App.xaml
-886544959
-3-1296769525
-21661630286
-1962012284453
-Componentes\AdministradorWallPaper.xaml;Componentes\Comportamientos\AdministradorComportamientos.xaml;Componentes\EditorMonitor.xaml;Componentes\ElementoWallPaper.xaml;Componentes\FormularioWalPaperSet.xaml;Componentes\ListaDeSets.xaml;MainWindow.xaml;Recursos\Estilos.xaml;
+11-841695264
+5-770448203
+24146753537
+196-1435304745
+Componentes\AdministradorWallPaper.xaml;Componentes\Comportamientos\AdministradorComportamientos.xaml;Componentes\Comportamientos\ColeccionComportamientos.xaml;Componentes\EditorMonitor.xaml;Componentes\ElementoWallPaper.xaml;Componentes\FormularioWalPaperSet.xaml;Componentes\ListaDeSets.xaml;Componentes\Menu\ElementoMenu.xaml;Componentes\Menu\Menu.xaml;MainWindow.xaml;Recursos\Estilos.xaml;
 
 False
 

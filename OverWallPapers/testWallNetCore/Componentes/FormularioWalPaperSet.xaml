@@ -10,26 +10,28 @@
     d:DesignWidth="400">
 
     <Border Style="{StaticResource Targeta}">
-        <Grid>
+        <Grid >
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="20*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
 
            
             
             <!--Formulario para los datos-->
-            <TextBlock x:Name="Titulo" Grid.Column="1" Grid.Row="0" Text="Nuevo Set!" Style="{StaticResource Titulo}"/>
+            <TextBlock x:Name="Titulo" Grid.Column="1" Grid.Row="1" Text="Nuevo Set!" Style="{StaticResource Titulo}"/>
 
-            <Grid x:Name="GrdForm" Grid.Column="1" Grid.Row="1">
+            <Grid x:Name="GrdForm" Grid.Column="1" Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -54,14 +56,14 @@
                     
                 </StackPanel>
             </Grid>
-            <Border Grid.Column="1" Grid.Row="2" BorderBrush="Gray" BorderThickness="0,0,0,2" Margin="0,10,0,10">
+            <Border Grid.Column="1" Grid.Row="4" BorderBrush="Gray" BorderThickness="0,0,0,2" Margin="0,10,0,10">
 
             </Border>
 
 
             <!--Control de imagenes y pantallas-->
 
-            <Grid x:Name="ContenedorMonitores" Grid.Column="1" Grid.Row="3" Background="AliceBlue" >
+            <Grid x:Name="ContenedorMonitores" Grid.Column="1" Grid.Row="4" Background="AliceBlue" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
@@ -70,14 +72,14 @@
 
             </Grid>
 
-            <StackPanel Grid.Column="1" Margin="0,0,0,0" Grid.Row="4" Orientation="Horizontal" >
+            <StackPanel Grid.Column="1" Margin="0,0,0,0" Grid.Row="5" Orientation="Horizontal" >
                 <Button x:Name="BtnGuardar" Grid.Column="1" Margin="0,0,10,0" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="Guardar" Click="BtnGuardar_Click"></Button>
                 <Button x:Name="BtnAplicar" Grid.Column="1" Margin="0,0,10,0" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="Aplicar" Click="BtnAplicar_Click"></Button>
                 <Button x:Name="BtnVolver" Grid.Column="1"  Margin="0,0,10,0" Grid.Row="4" Style="{StaticResource BotonPrincipal}" Content="Volver" Click="BtnVolver_Click"></Button>
             </StackPanel>
 
 
-            <Grid x:Name="GrdCarga" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="5" Background="#88000000">
+            <Grid x:Name="GrdCarga" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="6" Background="#88000000">
                 <TextBlock  Style="{StaticResource Titulo}" >Cargando</TextBlock>
             </Grid>
         </Grid>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using testWallNetCore.Datos.Interfaces;
 
 namespace testWallNetCore.Componentes.Comportamientos
 {
@@ -20,9 +21,15 @@ namespace testWallNetCore.Componentes.Comportamientos
     /// </summary>
     public partial class AdministradorComportamientos : UserControl
     {
+        IAgenteDatos Agente;
         public AdministradorComportamientos()
         {
             InitializeComponent();
+        }
+
+        public AdministradorComportamientos(IAgenteDatos agente):this()
+        {
+            Agente = agente;
         }
     }
 }

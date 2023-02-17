@@ -30,7 +30,19 @@ namespace testWallNetCore.Modelos
             for (uint i = 0; i < x; i++)
             {
                 string id =Wallpaper.GetMonitorDevicePathAt(i);
-                PosicionesMonitor.Add(new PosicionMonitor(id, Wallpaper.GetMonitorRECT(id)));
+
+                //extraer los monitores que si tengancaracteristicas
+                try
+                {
+                    Rect rect = Wallpaper.GetMonitorRECT(id);
+                    PosicionesMonitor.Add(new PosicionMonitor(id, rect));
+                }
+                catch
+                { 
+
+                }
+
+                
                 
             }
 
@@ -78,9 +90,11 @@ namespace testWallNetCore.Modelos
                 Wallpaper = (IDesktopWallpaper)new DesktopWallpaper();
 
  
-                //recorrer la lista de monitores para aplicar el wall
-                for(int i=0;i<set.Monitores.Count;i++)
+                //recorrer la lista de monitores reales conectados a la pc para aplicarles un wall
+                //y no los que el wall paper pienza que tiene conectados la pc
+                for(int i=0;i<configMonitores.Count && i<set.Monitores.Count;i++)
                 {
+                    //en caso de que el monitor mencionado no exista atrapar la excepcion y listo 
                     //cambiar el fondo de pantalla
                     Wallpaper.SetWallpaper(configMonitores[i],set.Monitores[(int)i].FondoDePantalla);
 

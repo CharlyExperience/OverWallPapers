@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="testWallNetCore.Componentes.Menu.Menu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:testWallNetCore.Componentes.Menu"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition x:Name="ColTelon" Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="GrdContenedor" Grid.Column="0" Background="#FFFFFF" MouseEnter="ColIcono_MouseEnter" MouseLeave="Grid_MouseLeave">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="ColIcono" Width="auto" />
+                <!--<ColumnDefinition x:Name="ColExtensible" Width="auto"/>-->
+                <!--<ColumnDefinition  Width="*"/>-->
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Style="{StaticResource Titulo}">O</TextBlock>
+            <Separator Grid.Row="1" Margin="10,10,10,0"></Separator>
+
+            
+
+        </Grid>
+        <Canvas Grid.Column="1" Grid.ColumnSpan="1" Background="#88000000">
+
+        </Canvas>
+    </Grid>
+
+</UserControl>

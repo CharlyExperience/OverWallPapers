@@ -83,3 +83,12 @@ C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCor
 C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCore\obj\Debug\net6.0-windows\testWallNetCore_Content.g.cs
 C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCore\bin\Debug\net6.0-windows\Recursos\Iconos\Experimental.png
 C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCore\bin\Debug\net6.0-windows\Recursos\Iconos\Imagen.png
+C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCore\obj\Debug\net6.0-windows\Componentes\Menu\Menu.g.cs
+C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCore\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCore\obj\Debug\net6.0-windows\Componentes\Menu\Menu.baml
+C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCore\obj\Debug\net6.0-windows\Componentes\Menu\ElementoMenu.g.cs
+C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCore\obj\Debug\net6.0-windows\Componentes\Menu\ElementoMenu.baml
+C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCore\obj\Debug\net6.0-windows\Componentes\Comportamientos\ColeccionComportamientos.g.cs
+C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCore\obj\Debug\net6.0-windows\Componentes\Comportamientos\ColeccionComportamientos.baml
+C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCore\bin\Debug\net6.0-windows\Recursos\Iconos\imgCyan.png
+C:\Users\Charly\Documents\Proyectos\OverWallPapers\OverWallPapers\testWallNetCore\bin\Debug\net6.0-windows\Recursos\Iconos\imgGray.png

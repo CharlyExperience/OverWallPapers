@@ -11,5 +11,7 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("recursos/iconos/calendario.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("recursos/iconos/experimental.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("recursos/iconos/imagen.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("recursos/iconos/imgcyan.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("recursos/iconos/imggray.png")]
 
 

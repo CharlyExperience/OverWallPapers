@@ -10,9 +10,27 @@
     <Compile Update="Componentes\Comportamientos\AdministradorComportamientos.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Componentes\Comportamientos\ColeccionComportamientos.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Componentes\Menu\ElementoMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Componentes\Menu\Menu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Componentes\Comportamientos\AdministradorComportamientos.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Componentes\Comportamientos\ColeccionComportamientos.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Componentes\Menu\ElementoMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Componentes\Menu\Menu.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
